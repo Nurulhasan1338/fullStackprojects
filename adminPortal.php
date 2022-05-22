@@ -12,7 +12,7 @@
   position: fixed;
   height: 100%;
   overflow: auto;
-  top:66px;
+  top:72px;
 }
 
 .sidebar a {
@@ -43,24 +43,6 @@ div.content {
     position:fixed;
     z-index: 1;
 }
-
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
-}
-
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-}
    </style>
 </head>
 
@@ -87,7 +69,7 @@ echo"
   </div>
   <div class='content'>
 
-      <h2>Available Products</h2>
+      <h2>Available items</h2>
       
       <div class='d-flex flex-wrap align-items-start'>
           
@@ -97,14 +79,13 @@ echo"
 for($i=0;$i<$row;$i++){
         $info=mysqli_fetch_assoc($product);
         $id=$info['pid'];
-        $img=$info['img'];
     $pname=$info['p_name'];
     $price=$info['price'];
     $descrp=$info['description'];
     $stock=$info['stock_left'];
     echo"
-    <div class='card m-4 w-25 '>
-                <img src='productsImage/$img' class='card-img-top' alt='product image'>
+    <div class='card m-4 w-25 vh-30 '>
+                <img src='productsImage/$pname.jpg' class='card-img-top' alt='product image'>
                 <div class='card-body'>
                     <h5 class='card-title'>$pname<br><strong>$$price</strong></h5>
                 <p class='card-text'>$descrp</p>
@@ -114,7 +95,7 @@ for($i=0;$i<$row;$i++){
                 </tr>
                  </table>
                  
-                 <a href='#' class='btn btn-danger m-2'>delete</a>
+                 <a href='delete.php?id=$id' class='btn btn-danger m-2'>delete</a>
                  <a href='#' class='btn btn-primary m-2'>edit</a>
                  
                 </div>

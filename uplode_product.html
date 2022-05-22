@@ -4,25 +4,88 @@
     <title>add new product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
-<body>
-  <div class="d-flex  flex-column justify-content-center vh-100 align-items-center p-2 m-2">
-    <h1 class="p-2 m-3 w-50 bg-secondary text-center">Add product details</h1>
+<style>
+  .sidebar {
+margin: 0;
+padding: 0;
+width: 200px;
+background-color: #f1f1f1;
+position: fixed;
+height: 100%;
+overflow: auto;
+top:72px;
+}
 
+.sidebar a {
+display: block;
+color: black;
+padding: 16px;
+text-decoration: none;
+}
+
+.sidebar a.active {
+background-color: #ffc107;
+color: #100d0d;
+border: 1px solid gray;
+}
+
+.sidebar a:hover:not(.active) {
+background-color: #555;
+color: white;
+}
+
+div.content {
+margin-left: 200px;
+padding: 1px 16px;
+position: relative;
+padding-top:86px;
+}
+.header{
+position:fixed;
+z-index: 1;
+}
+</style>
+<body>
+  <div class="w-100 bg-warning header">
+    <div class="me-auto p-2"><h1>Admin portal</h1></div>
+</div>
+
+<div class="sidebar">
+<a href="adminPortal.php">Home</a>
+<a  class="active" href="uplode_product.html">Add product</a>
+<a href="#contact">add new admin</a>
+<a href="#about">orders</a>
+</div>
+<div class="content">
+  <h2>Product details</h2>
+
+  <div class="d-flex  flex-column justify-content-center vh-70 m-3">
+    
     <form action="p_uplode.php" method="POST" enctype="multipart/form-data" accept="image/*" class="w-50">
       <div class="form-row">
-          <div class="form-group col-md-6 m-2">
-            <label for="inputEmail4">Product Name:</label>
-            <input type="text" class="form-control" name="pname">
+        <!-- product Name -->
+        <div class="form-group col-md-6 m-2">
+          <label for="inputEmail4">Product Name:</label>
+          <input type="text" class="form-control" name="pname">
           </div>
+          <!-- price -->
           <div class="form-group col-md-4 m-2">
             <label for="inputPassword4">Price:</label>
             <input type="number" class="form-control" id="inputPassword4" name="price" placeholder="">
           </div>
         </div>
+        
+        <!-- for description -->
         <div class="form-group m-2">
           <label for="inputAddress">description:</label>
           <input type="text" class="form-control" id="inputAddress" name="descrip" placeholder="write about the product">
         </div>
+        <div class="form-group m-2">
+          <label for="inputAddress">Quantity:</label>
+          <input type="number" class="form-control" id="inputAddress" name="stock" placeholder="Quantity of product">
+        </div>
+
+        <!-- image -->
         <div class="form-group m-2">
           <label for="inputAddress">Upload Image :</label>
           <input type="file" class="form-control" id="inputAddress" name="img">
@@ -30,6 +93,7 @@
         <button type="submit" class="btn btn-primary m-2">done</button>
       </form>
     </div>
-      
-    </body>
-    </html>
+  </div>
+    
+  </body>
+  </html>
