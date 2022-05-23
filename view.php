@@ -41,6 +41,7 @@
 
 <?php
 include_once("connection.php");
+$c_id=$_GET['id2'];
 echo"
     <div class='d-flex justify-content-center vh-100 align-items-center bg-warning'>
     <div class='d-flex justify-content-center align-items-center design' >
@@ -69,7 +70,7 @@ echo"
                 <h5 class='card-title'>$pname<br><strong>$$price</strong></h5>
             <p class='card-text'>$descrp</p>
              
-             <a href='cart.php?id=$id' class='btn btn-warning m-2'>add to cart</a>
+             <a href='cart.php?id=$id&c_id=$c_id' class='btn btn-warning m-2'>add to cart</a>
              <a href='#' class='btn btn-success m-2'>Buy</a>
              
             </div>

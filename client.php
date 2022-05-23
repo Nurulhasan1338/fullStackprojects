@@ -15,15 +15,20 @@ for($i=0;$i<$row;$i++){
 $info=mysqli_fetch_assoc($client);
 if($name==$info['c_name']){
     $check=TRUE;
+    $id=$info['c_id'];
 }
 }
 
 if($check){
-   header("location:view.php");
+   header("location:view.php?id2=$id");
+
 }
 else{
     $new_client=mysqli_query($conn,$cmd);
-    echo"Successful";
+   if($new_client){
+       echo"successful";
+       header("location:client.php");
+   }
 }
 
 // $cmd1="select c_id from client where c_name=$name";
